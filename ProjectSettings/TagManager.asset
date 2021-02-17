@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Floor
   - Pickup
   - Coin
+  - Weapon
   layers:
   - Default
   - TransparentFX
