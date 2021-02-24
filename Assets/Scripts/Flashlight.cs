@@ -2,22 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour, IItem
+public class Flashlight : MonoBehaviour, IItem
 {
     [SerializeField]
-    Transform firePoint;
+    Light flashlight;
 
-    [SerializeField]
-    float bulletForce;
-
-    [SerializeField]
-    GameObject frogBullet;
-
-    [SerializeField]
-    float fireInterval = 1;
-
-    bool canShoot = true;
-    // This function will be called from the playerController
+    bool lightSwitch = true;
     public void Pickup(Transform hand)
     {
             // Set the parent of the "weapon" to the hand.
@@ -34,14 +24,13 @@ public class Gun : MonoBehaviour, IItem
 
     public void Use()
     {
-        Debug.Log("<color=red>Pow!</color>");
-        if(canShoot)
+        if(lightSwitch)
         {
-            GameObject bullet = Instantiate(frogBullet, firePoint.position, firePoint.rotation, null);
-            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce);
-            canShoot = false;
+            flashlight.enabled = !flashlight.enabled;  
+            lightSwitch = false;
             StartCoroutine(Wait());
         }
+         
     }
 
     public void Drop()
@@ -56,8 +45,7 @@ public class Gun : MonoBehaviour, IItem
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(fireInterval);
-        canShoot = true;
+        yield return new WaitForSeconds(1);
+        lightSwitch = true;
     }
-
 }

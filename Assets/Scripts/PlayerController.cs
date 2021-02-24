@@ -9,10 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Transform hand;
 
-    [SerializeField]
-    GameObject frogBullet;
-
-    Gun heldItem;
+    IItem heldItem;
     public int oxygenSupply = 0;
     public int coins = 0;
     bool crouch = false;
@@ -23,11 +20,11 @@ public class PlayerController : MonoBehaviour
     {
         crouching();
 
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButton("Fire1"))
         {
             if(heldItem != null)
             {
-                heldItem.Use(frogBullet);
+                heldItem.Use();
             }
             else
             {
@@ -53,10 +50,17 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("I have hit " + other.gameObject.name + "!");
 
-        if (other.gameObject.CompareTag("Weapon"))
+        if (heldItem == null)
         {
-            heldItem = other.GetComponent<Gun>();
-            heldItem.Pickup(hand);
+            if (other.gameObject.CompareTag("Item"))
+            {
+                heldItem = other.GetComponent<IItem>();
+                heldItem.Pickup(hand);
+            }
+        }
+        else
+        {
+            Debug.Log("You already have an item!");
         }
 
         if(other.gameObject.CompareTag("Pickup"))
