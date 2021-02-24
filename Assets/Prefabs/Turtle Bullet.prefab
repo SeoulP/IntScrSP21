@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7903497980124279199}
   - component: {fileID: 5850250363636363082}
   m_Layer: 0
-  m_Name: Frog Bullet
+  m_Name: Turtle Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7903497980124279196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 336.02863, y: -52.571, z: 2449.2385}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.25, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 112b3fcb812eac040a675af9f934e2e3, type: 2}
+  - {fileID: 2100000, guid: e7e88dfdf92010c4dbcad08da338cd8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,7 +88,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7903497980124279196}
-  m_Material: {fileID: 13400000, guid: f4101d7f1948a8d498d037aadba93f20, type: 2}
+  m_Material: {fileID: 13400000, guid: ec464a4d7e2347c4c84a6c32845b9be9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
