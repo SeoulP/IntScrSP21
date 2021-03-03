@@ -37,6 +37,10 @@ public class TeleporterGun : MonoBehaviour, IItem
         Debug.Log("<color=red>Pow!</color>");
         if (canShoot)
         {
+            if (bullet != null)
+            {
+                Destroy(bullet);
+            }
             bullet = Instantiate(teleDisc, firePoint.position, firePoint.rotation, null);
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce);
             canShoot = false;
@@ -46,9 +50,13 @@ public class TeleporterGun : MonoBehaviour, IItem
 
     public void SecondaryUse()
     {
-        GameObject.FindGameObjectWithTag("Player").transform.position = bullet.transform.position;
-        Destroy(bullet);
-        StartCoroutine(Wait());
+        
+        if (bullet != null)
+        {
+            GameObject.FindGameObjectWithTag("Player").transform.position = bullet.transform.position;
+            Destroy(bullet);
+            StartCoroutine(Wait());
+        }
     }
 
     public void Drop()
