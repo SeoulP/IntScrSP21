@@ -31,6 +31,17 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("We aren't holding anything!");
             }
         }
+        if(Input.GetButton("Fire2"))
+        {
+            if(heldItem != null)
+            {
+                heldItem.SecondaryUse();
+            }
+            else
+            {
+                Debug.Log("We aren't holding anything!");
+            }
+        }
 
         if(Input.GetKeyDown(KeyCode.Q))
         {

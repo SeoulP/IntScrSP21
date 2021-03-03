@@ -30,7 +30,11 @@ public class Flashlight : MonoBehaviour, IItem
             lightSwitch = false;
             StartCoroutine(Wait());
         }
-         
+    }
+
+    public void SecondaryUse()
+    {
+
     }
 
     public void Drop()

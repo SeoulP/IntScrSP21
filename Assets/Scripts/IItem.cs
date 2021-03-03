@@ -6,5 +6,7 @@ public interface IItem
 {
     void Pickup(Transform hand);
     void Use();
+
+    void SecondaryUse();
     void Drop();
 }
