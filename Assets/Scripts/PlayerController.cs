@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class PlayerController : MonoBehaviour
@@ -8,8 +9,11 @@ public class PlayerController : MonoBehaviour
     // This is the players hand
     [SerializeField]
     Transform hand;
+    [SerializeField]
+    TMP_Text sapphireCount;
 
-    IItem heldItem;
+    [System.NonSerialized]
+    public IItem heldItem;
     public int oxygenSupply = 0;
     public int coins = 0;
     bool crouch = false;
@@ -55,6 +59,8 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("We aren't holding anything!");
             }
         }
+
+        sapphireCount.text = coins + "/10";
     }
 
     void OnTriggerEnter(Collider other)
@@ -77,8 +83,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Pickup"))
         {
             Destroy(other.gameObject);
-            oxygenSupply++;
-            coins += 1;
+            coins += 1;  
         }
 
         if (other.gameObject.CompareTag("Floor")) {
